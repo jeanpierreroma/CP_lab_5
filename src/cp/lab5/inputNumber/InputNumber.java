@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class InputNumber {
-    private int chooseVariantOfInputting() {
+    public int chooseVariantOfInputting() {
         Scanner scanner = new Scanner(System.in);
         int choose = -1;
         do {
@@ -44,12 +44,12 @@ public class InputNumber {
         return size;
     }
 
-    private int byRandom() {
+    public int byRandom() {
         int r = new Random().nextInt(0, 100);
         System.out.println("Your number is " + r);
         return r;
     }
-    private int byConsole() {
+    public int byConsole() {
         Scanner scanner = new Scanner(System.in);
         int size = -1;
         do {
@@ -58,7 +58,7 @@ public class InputNumber {
             } catch (NumberFormatException e) {
                 System.err.println("Введе значення не є невід'ємним числом");
             }
-        } while (size == -1);
+        } while (size == -1 || size > 100);
 
         return size;
     }

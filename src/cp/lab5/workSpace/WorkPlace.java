@@ -11,19 +11,19 @@ public class WorkPlace {
     private final String text;
     private int wordSize;
 
-    private String getText() {
+    public String getText() {
         return text;
     }
 
-    private int getWordSize() {
+    public int getWordSize() {
         return wordSize;
     }
 
-    private void changeWordSize(int newSize) {
+    public void changeWordSize(int newSize) {
         wordSize = newSize;
     }
 
-    private WorkPlace(String text, int wordSize) {
+    public WorkPlace(String text, int wordSize) {
         this.text = text;
         this.wordSize = wordSize;
     }
@@ -86,7 +86,7 @@ public class WorkPlace {
         } while (isProcess);
     }
 
-    private List<String> devideText() {
+    public List<String> devideText() {
         String text = getText();
 //        ?<= - означає позитивний прохід назад
 //        \w - Буквений або цифровий символ, або знак подкреслювання; букви лише латинські
@@ -96,19 +96,19 @@ public class WorkPlace {
         return new ArrayList<>(Arrays.asList(text.split("(?<=\\w[.!?]) ")));
     }
 
-    private List<String> onlyQuestions() {
+    public List<String> onlyQuestions() {
         List<String> strings = devideText();
 
         ArrayList<String> questions = new ArrayList<>();
         for (String string : strings) {
-            if (string.charAt(string.length() - 1) == '?') {
+            if (string.length() > 0 && string.charAt(string.length() - 1) == '?') {
                 questions.add(string);
             }
         }
         return questions;
     }
 
-    private Set<String> wordsOfGivenLenth() {
+    public Set<String> wordsOfGivenLenth() {
         List<String> questions = onlyQuestions();
         int givenSize = getWordSize();
 

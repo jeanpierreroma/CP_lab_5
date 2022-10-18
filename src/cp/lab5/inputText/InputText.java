@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class InputText {
-    private int chooseVariantOfInputting() {
+    public int chooseVariantOfInputting() {
         Scanner scanner = new Scanner(System.in);
         int choose = -1;
         do {
@@ -35,7 +35,7 @@ public class InputText {
         return text;
     }
 
-    private String byFile() {
+    public String byFile() {
         StringBuilder stringBuilder = new StringBuilder();
         try (FileReader reader = new FileReader("Text.txt")) {
             Scanner scan = new Scanner(reader);
@@ -48,14 +48,15 @@ public class InputText {
 
         return stringBuilder.toString().strip();
     }
-    private String byConsole() {
+    public String byConsole() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
-    private void checkIsEmpty(String s) {
-        if(s.length() == 0) {
-            throw new NullPointerException("Стрічка порожня");
+    public void checkIsEmpty(String s) {
+        if(s == null || s.length() == 0) {
+            s = "";
+            System.err.println("Стрічка порожня");
         }
     }
 }
